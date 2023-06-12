@@ -10,10 +10,6 @@ export default function ShippingAddressScreen(props) {
   const cart = useSelector(state => state.cart);
   const {shippingAddress} = cart;
   const { userInfo } = userSignin;
-  // if (!userInfo) {
-  //   console.log("azis");
-  //   navigate("/signin");
-  // }
   useEffect(() => {
     if (!userInfo) {
       navigate('/signin');

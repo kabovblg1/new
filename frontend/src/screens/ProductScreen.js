@@ -13,7 +13,6 @@ export default function ProductScreen(props) {
   const { id: productId } = params;
   const [qty, setQty] = useState(1);
 
-  //const product = data.products.find((x) => id === x._id);
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 

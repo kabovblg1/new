@@ -24,6 +24,9 @@ export default function RegisterScreen(props) {
     e.preventDefault();
     if(password !== confirmPassword){
       alert('Паролите не съвпадат!');
+    } 
+    else if(!password.match ('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})' )){
+      alert('Паролата трябва да съдържа поне 8 символа, малка, голяма буква, специален символ и цифра!');
     } else {
       dispatch(register(name, email, password));
     }

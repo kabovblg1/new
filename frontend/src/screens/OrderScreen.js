@@ -113,8 +113,8 @@ export default function OrderScreen(props) {
                         </div>
 
                         <div>
-                          {item.qty} x BGN {item.price} = BGN{" "}
-                          {item.qty * item.price}
+                          {item.qty} x BGN {item.price.toFixed(2)} = BGN{" "}
+                          {(item.qty * item.price).toFixed(2)}
                         </div>
                       </div>
                     </li>
@@ -163,10 +163,6 @@ export default function OrderScreen(props) {
                   {!sdkReady ? (
                     <LoadingBox></LoadingBox>
                   ) : (
-                    // <PayPalButton
-                    //   amount={order.totalPrice.toFixed(2)}
-                    //   onSuccess={successPaymentHandler}
-                    // />
                     <>
                       {errorPay && (
                         <MessageBox variant="danger">{errorPay}</MessageBox>

@@ -10,10 +10,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-//mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost:5000/kaboffstyle");
 mongoose.connect(process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/myapp");
-
-
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
@@ -25,11 +22,11 @@ app.get("/", (req, res) => {
   res.send("Server is ready");
 });
 //app.use((err, req, res,next) =>{
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   res.status(500).send({ message: err.message });
 });
 
-const port = 5000;
+const port = 5001;
 //const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`Serve at http://localhost:${port}`);
